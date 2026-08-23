@@ -47,7 +47,7 @@ Voraussetzung ist Go 1.24 oder neuer.
 Repository klonen:
 
 ```bash
-git clone https://github.com/aaron0sec/web-osint.git
+git clone https://github.com/linuxaaron/web-osint.git
 cd web-osint
 ```
 
