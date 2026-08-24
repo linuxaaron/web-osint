@@ -132,3 +132,10 @@ Das Projekt ist **kein Exploit-Scanner** und enthält bewusst keine Funktionen z
 ## Lizenz
 
 MIT
+
+
+## Responsible Use and Legal Notice
+
+Use this tool only for domains, systems and information you are authorized to investigate or for lawful research based on publicly available information. Do not use it to bypass authentication or access controls, evade rate limits, conduct unauthorized scanning, disrupt services or obtain non-public information.
+
+You are solely responsible for your use of the software and for complying with applicable law, privacy requirements, contractual restrictions and third-party terms of service. The MIT License grants rights to this project's source code; it does not grant permission to access third-party systems or data.
