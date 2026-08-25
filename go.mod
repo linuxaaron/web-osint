@@ -1,3 +1,3 @@
-module github.com/aaron0sec/web-osint
+module github.com/linuxaaron/web-osint
 
 go 1.24
