@@ -2,7 +2,7 @@
 
 Ein in Go entwickeltes OSINT-Werkzeug zur Analyse **öffentlich beobachtbarer Informationen** über Domains und Websites.
 
-> Das Projekt greift nicht auf private Systeme zu, umgeht keine Authentifizierung und behauptet keine autoritativen Besucherzahlen aus öffentlichen HTTP-Antworten. Traffic-Werte sind grundsätzlich als Schätzungen zu behandeln, sofern sie von einem dokumentierten Drittanbieter stammen.
+> Das Projekt greift nicht auf private Systeme zu, umgeht keine Authentifizierung und behauptet keine autoritativen Besucherzahlen aus öffentlichen HTTP-Antworten. Traffic-Werte sind als Schätzungen zu behandeln, sofern sie von einem dokumentierten Drittanbieter stammen.
 
 ## Funktionen
 
@@ -30,7 +30,7 @@ Voraussetzung ist Go 1.24 oder neuer.
 Repository klonen:
 
 ```bash
-git clone https://github.com/aaron0sec/web-osint.git
+git clone https://github.com/linuxaaron/web-osint.git
 cd web-osint
 ```
 
@@ -133,9 +133,8 @@ Das Projekt ist **kein Exploit-Scanner** und enthält bewusst keine Funktionen z
 
 MIT
 
+## Rechtliche Hinweise
 
-## Responsible Use and Legal Notice
+Nutze dieses Tool ausschließlich für Domains, Systeme und Informationen, deren Untersuchung du ausdrücklich autorisiert durchführen darfst, oder für rechtmäßige Recherche auf Basis öffentlich verfügbarer Informationen. Verwende es nicht zum Umgehen von Authentifizierung oder Zugriffskontrollen, zum Umgehen von Rate-Limits, für unbefugtes Scanning, zur Störung von Diensten oder zur Beschaffung nicht öffentlicher Informationen.
 
-Use this tool only for domains, systems and information you are authorized to investigate or for lawful research based on publicly available information. Do not use it to bypass authentication or access controls, evade rate limits, conduct unauthorized scanning, disrupt services or obtain non-public information.
-
-You are solely responsible for your use of the software and for complying with applicable law, privacy requirements, contractual restrictions and third-party terms of service. The MIT License grants rights to this project's source code; it does not grant permission to access third-party systems or data.
+Du bist selbst für die Nutzung der Software sowie für die Einhaltung geltender Gesetze, Datenschutzanforderungen, vertraglicher Einschränkungen und Nutzungsbedingungen Dritter verantwortlich. Die MIT-Lizenz gewährt Rechte am Quellcode, aber keine Berechtigung zum Zugriff auf fremde Systeme oder Daten.
