@@ -10,7 +10,7 @@ Ein in Go entwickeltes OSINT-Werkzeug zur Analyse **öffentlich beobachtbarer In
 - Antwortzeit
 - Server- und Content-Type-Informationen
 - DNS: A, AAAA, MX, NS und TXT
-- TLS-Version und Zertifikatsinformationen
+- TLS-Version und Zertifikatsinformationen inklusive Zertifikatsvalidierung
 - grundlegende Technologie-Erkennung aus öffentlich ausgelieferten Inhalten
 - Security-Header-Prüfung
 - `robots.txt` und `sitemap.xml`
@@ -21,7 +21,24 @@ Ein in Go entwickeltes OSINT-Werkzeug zur Analyse **öffentlich beobachtbarer In
 - lesbarer Terminal-Report
 - JSON-Ausgabe für Automatisierung
 - separates Modul für öffentliche Traffic-/Popularity-Daten
+- Validierung öffentlicher Scanziele und sichere Redirect-Prüfung
 - Go-Implementierung ohne externe Abhängigkeiten für den Basisscanner
+
+## Sicherheit der Zieleingabe
+
+Der Basisscanner ist auf öffentlich erreichbare Ziele ausgelegt. Vor HTTP-Requests werden Ziel und Redirects validiert.
+
+Abgewiesen werden unter anderem:
+
+- Loopback-Adressen wie `127.0.0.1`
+- private IPv4-/IPv6-Netze
+- Link-Local- und Multicast-Adressen
+- nicht auflösbare Hostnamen
+- ungültige Hostnamen
+- `file://`, `ftp://` und andere nicht unterstützte Schemes
+- URLs mit eingebetteten Zugangsdaten
+
+Damit wird verhindert, dass eine manipulierte Eingabe den Scanner als einfachen SSRF-Proxy für interne Systeme verwendet.
 
 ## Installation
 
@@ -69,6 +86,18 @@ Windows:
 go build -o web-osint.exe ./cmd/web-osint
 .\web-osint.exe --full example.com
 ```
+
+## Tests
+
+Die CI führt Formatierung, Build und Unit-Tests aus:
+
+```bash
+gofmt -w .
+go build ./...
+go test ./...
+```
+
+Die Regressionstests decken insbesondere die Zielvalidierung, den Schutz vor privaten Adressen und die Security-Header-Auswertung ab.
 
 ## Traffic- und Popularitätsdaten
 
@@ -123,9 +152,12 @@ Das Projekt ist **kein Exploit-Scanner** und enthält bewusst keine Funktionen z
 - [x] Certificate-Transparency-Subdomains
 - [x] verbesserte Technologie-/Tracker-Erkennung
 - [x] öffentliche Traffic-/Popularity-Datenquellen
+- [x] Ziel- und Redirect-Validierung
+- [x] TLS-Zertifikatsvalidierung
+- [x] Regressionstests für Sicherheitsfunktionen
 - [ ] versioniertes strukturiertes Report-Schema
 - [ ] konfigurierbare Rate-Limits
-- [ ] umfangreichere Unit- und Integrationstests
+- [ ] umfangreichere Integrationstests
 - [ ] Release-Binaries für Linux/macOS/Windows
 - [ ] erweiterbares Provider-Interface für weitere OSINT-Datenquellen
 
